@@ -19,8 +19,15 @@ object Dependencies {
 
     /*Test*/
     private const val jUnit = "junit:junit:${Versions.Test.JUNIT}"
-    private const val testJUnit = "androidx.test.ext:junit:${Versions.Test.EXT_J_UNIT}"
+    private const val androidXTestRules = "androidx.test:rules:${Versions.Test.ANDROIDX_TEST}"
+    private const val androidXTestRunner = "androidx.test:runner:${Versions.Test.ANDROIDX_TEST}"
+    private const val testJUnitKTX = "androidx.test.ext:junit-ktx:${Versions.Test.EXT_J_UNIT}"
     private const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.Test.ESPRESSO}"
+
+    /*DETEKT*/
+    const val DETEKT = Versions.Detekt.DETEKT_LIB
+    const val DETEKT_PLUGIN = "io.gitlab.arturbosch.detekt"
+    internal const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.Detekt.DETEKT_FORMATTING}"
 
     val appDependencies = arrayListOf<String>().apply {
         add(KOTLIN_JDK)
@@ -39,8 +46,10 @@ object Dependencies {
     }
 
     val androidTest = arrayListOf<String>().apply {
-        add(testJUnit)
         add(espressoCore)
+        add(androidXTestRules)
+        add(androidXTestRunner)
+        add(testJUnitKTX)
     }
 
     val classPath = arrayListOf<String>().apply {
@@ -76,4 +85,8 @@ fun DependencyHandler.testImplementation(list: List<String>) {
     list.forEach { dependency ->
         add("testImplementation", dependency)
     }
+}
+
+fun DependencyHandler.detektFormatting() {
+    add("detektPlugins", Dependencies.DETEKT_FORMATTING)
 }

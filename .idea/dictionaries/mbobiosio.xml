@@ -2,6 +2,7 @@
   <dictionary name="mbobiosio">
     <words>
       <w>constraintlayout</w>
+      <w>detekt</w>
       <w>kapt</w>
     </words>
   </dictionary>

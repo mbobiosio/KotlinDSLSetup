@@ -1,5 +1,3 @@
-import org.gradle.api.invocation.Gradle
-
 object Versions {
 
     object Android {
@@ -40,5 +38,11 @@ object Versions {
         const val JUNIT = "4.13.1"
         const val EXT_J_UNIT = "1.1.1"
         const val ESPRESSO = "3.2.0"
+        const val ANDROIDX_TEST = "1.3.0"
+    }
+
+    object Detekt {
+        const val DETEKT_LIB = "1.14.2"
+        const val DETEKT_FORMATTING = "1.12.0"
     }
 }
